@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sugar Society | Luxury Connections</title>
+
+<style>
+:root{
+  --black:#080608;
+  --dark:#120b0e;
+  --card:#1a0d12;
+  --burgundy:#6d1028;
+  --burgundy2:#8b1837;
+  --gold:#d7ad62;
+  --cream:#f8f0e5;
+  --muted:#b8aaae;
+  --border:rgba(215,173,98,.25);
+  --green:#2bb673;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
+
+html{
+  scroll-behavior:smooth
+}
+
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--black);
+  color:white;
+  line-height:1.6
+}
+
+button,input,select{
+  font:inherit
+}
+
+button{
+  cursor:pointer
+}
+
+a{
+  color:inherit;
+  text-decoration:none
+}
+
+/* NAV */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:17px 6%;
+  background:rgba(8,6,8,.9);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border)
+}
+
+.logo{
+  font-size:25px;
+  font-weight:bold;
+  letter-spacing:.5px
+}
+
+.logo span{
+  color:var(--gold)
+}
+
+.navlinks{
+  display:flex;
+  gap:25px;
+  align-items:center
+}
+
+.navlinks a{
+  color:#ddd;
+  font-size:14px
+}
+
+.navlinks a:hover{
+  color:var(--gold)
+}
+
+.navbutton{
+  background:var(--gold);
+  color:#160b0f!important;
+  padding:9px 18px;
+  border-radius:30px;
+  font-weight:bold
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:130px 7% 80px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(109,16,40,.55),transparent 36%),
+    radial-gradient(circle at 15% 85%,rgba(215,173,98,.09),transparent 30%),
+    var(--black)
+}
+
+.hero-content{
+  max-width:720px
+}
+
+.eyebrow{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:12px;
+  margin-bottom:18px
+}
+
+h1{
+  font-size:clamp(52px,8vw,90px);
+  line-height:.95;
+  margin-bottom:25px
+}
+
+h1 span{
+  color:var(--gold)
+}
+
+.hero p{
+  color:#c9bfc2;
+  font-size:18px;
+  max-width:620px;
+  margin-bottom:32px
+}
+
+.buttons{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap
+}
+
+.btn{
+  border:0;
+  padding:14px 25px;
+  border-radius:30px;
+  font-weight:bold
+}
+
+.primary{
+  background:var(--gold);
+  color:#170d10
+}
+
+.primary:hover{
+  filter:brightness(1.1);
+  transform:translateY(-1px)
+}
+
+.outline{
+  background:transparent;
+  color:white;
+  border:1px solid var(--border)
+}
+
+.outline:hover{
+  color:var(--gold);
+  border-color:var(--gold)
+}
+
+/* SECTIONS */
+
+section{
+  padding:90px 7%
+}
+
+.dark{
+  background:#0d080a
+}
+
+.heading{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 45px
+}
+
+.heading h2{
+  font-size:42px;
+  margin-bottom:10px
+}
+
+.heading p{
+  color:var(--muted)
+}
+
+/* SEARCH */
+
+.search{
+  max-width:1050px;
+  margin:0 auto 35px;
+  padding:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr auto;
+  gap:12px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:17px
+}
+
+input,select{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #35252a;
+  border-radius:10px;
+  background:#0c090a;
+  color:white;
+  outline:none
+}
+
+input:focus,select:focus{
+  border-color:var(--gold)
+}
+
+/* PROFILES */
+
+.profiles{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px
+}
+
+.profile{
+  overflow:hidden;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  transition:.25s
+}
+
+.profile:hover{
+  transform:translateY(-5px);
+  border-color:var(--gold)
+}
+
+.photo{
+  height:270px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#aaa;
+  background:
+    linear-gradient(145deg,#74132d,#1a090e)
+}
+
+.info{
+  padding:18px
+}
+
+.info h3{
+  margin-bottom:2px
+}
+
+.location{
+  color:var(--gold);
+  font-size:13px
+}
+
+.info p{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:9px
+}
+
+.premium-lock{
+  margin-top:12px;
+  color:#ddd;
+  font-size:12px
+}
+
+/* PREMIUM */
+
+.premium-box{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+  padding:55px 35px;
+  border:1px solid var(--gold);
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(109,16,40,.5),transparent 55%),
+    #11090d;
+  box-shadow:0 20px 80px rgba(0,0,0,.45)
+}
+
+.price{
+  color:var(--gold);
+  font-size:58px;
+  margin:12px
+}
+
+.price small{
+  color:var(--muted);
+  font-size:15px
+}
+
+.features{
+  list-style:none;
+  max-width:420px;
+  margin:25px auto;
+  text-align:left
+}
+
+.features li{
+  padding:8px 0
+}
+
+.features li:before{
+  content:"✓";
+  color:var(--gold);
+  margin-right:10px
+}
+
+/* SUPPORT */
+
+.telegram{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 25px;
+  border-radius:30px;
+  background:#229ed9;
+  font-weight:bold
+}
+
+/* FOOTER */
+
+footer{
+  padding:35px 7%;
+  text-align:center;
+  color:#888;
+  font-size:13px;
+  border-top:1px solid var(--border)
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  padding:20px;
+  background:rgba(0,0,0,.84);
+  backdrop-filter:blur(8px);
+  align-items:center;
+  justify-content:center
+}
+
+.modal.show{
+  display:flex
+}
+
+.modalbox{
+  position:relative;
+  width:100%;
+  max-width:460px;
+  max-height:90vh;
+  overflow:auto;
+  padding:30px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#160c11
+}
+
+.close{
+  position:absolute;
+  top:10px;
+  right:15px;
+  border:0;
+  background:none;
+  color:white;
+  font-size:27px
+}
+
+.modalbox h2{
+  margin-bottom:18px
+}
+
+.full{
+  width:100%;
+  margin-top:10px
+}
+
+.notice{
+  padding:13px;
+  margin:12px 0;
+  border-radius:10px;
+  background:#22131a;
+  color:#bbb;
+  font-size:13px
+}
+
+/* ADMIN */
+
+#adminPage{
+  display:none;
+  min-height:100vh;
+  background:#090709;
+  padding:30px
+}
+
+.admin-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px
+}
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:25px
+}
+
+.stat{
+  background:#150c10;
+  border:1px solid #39222a;
+  padding:20px;
+  border-radius:14px
+}
+
+.stat small{
+  color:#999
+}
+
+.stat strong{
+  display:block;
+  color:var(--gold);
+  font-size:28px;
+  margin-top:7px
+}
+
+.admin-panel{
+  background:#150c10;
+  border:1px solid #39222a;
+  border-radius:15px;
+  padding:23px;
+  margin-bottom:20px
+}
+
+.admin-panel h2{
+  margin-bottom:15px
+}
+
+.admin-actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px
+}
+
+.admin-action{
+  border:1px solid #3c252d;
+  background:#1d0e14;
+  color:white;
+  padding:18px;
+  border-radius:10px;
+  text-align:left
+}
+
+.admin-action:hover{
+  border-color:var(--gold)
+}
+
+.logout{
+  background:var(--burgundy);
+  color:white;
+  border:0;
+  padding:10px 18px;
+  border-radius:20px
+}
+
+.status{
+  color:var(--green)
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .profiles{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .search{
+    grid-template-columns:1fr
+  }
+
+  .admin-grid{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .admin-actions{
+    grid-template-columns:1fr
+  }
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:70px 5%
+  }
+
+  .profiles{
+    grid-template-columns:1fr
+  }
+
+  .navlinks a:not(.navbutton){
+    display:none
+  }
+
+  .hero{
+    padding-left:5%;
+    padding-right:5%
+  }
+
+  .admin-grid{
+    grid-template-columns:1fr
+  }
+
+  #adminPage{
+    padding:18px
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav id="mainNav">
+
+  <a href="#" class="logo">
+    Sugar <span>Society</span>
+  </a>
+
+  <div class="navlinks">
+    <a href="#discover">Discover</a>
+    <a href="#premium">Premium</a>
+    <a href="#support">Support</a>
+
+    <a
+      href="#"
+      class="navbutton"
+      onclick="openModal('loginModal');return false">
+      Sign In
+    </a>
+  </div>
+
+</nav>
+
+<!-- MAIN WEBSITE -->
+
+<div id="website">
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Luxury Connections
+    </div>
+
+    <h1>
+      Meet someone<br>
+      <span>exceptional.</span>
+    </h1>
+
+    <p>
+      Welcome to Sugar Society — a private community
+      for adults seeking meaningful, mutually respectful
+      connections.
+    </p>
+
+    <div class="buttons">
+
+      <a
+        href="#discover"
+        class="btn primary">
+        Discover Members
+      </a>
+
+      <button
+        class="btn outline"
+        onclick="openModal('loginModal')">
+        Join Sugar Society
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- DISCOVER -->
+
+<section class="dark" id="discover">
+
+  <div class="heading">
+
+    <div class="eyebrow">
+      Discover
+    </div>
+
+    <h2>
+      Featured Members
+    </h2>
+
+    <p>
+      Explore profiles and discover people
+      looking for genuine connections.
+    </p>
+
+  </div>
+
+  <div class="search">
+
+    <input
+      id="searchName"
+      placeholder="Search by name..."
+      oninput="filterProfiles()">
+
+    <select
+      id="searchLocation"
+      onchange="filterProfiles()">
+
+      <option value="">
+        All locations
+      </option>
+
+      <option value="Nairobi">
+        Nairobi
+      </option>
+
+      <option value="Mombasa">
+        Mombasa
+      </option>
+
+      <option value="Kisumu">
+        Kisumu
+      </option>
+
+    </select>
+
+    <button
+      class="btn primary"
+      onclick="filterProfiles()">
+      Search
+    </button>
+
+  </div>
+
+  <div class="profiles" id="profiles">
+
+    <article
+      class="profile"
+      data-name="Amara"
+      data-location="Nairobi">
+
+      <div class="photo">
+        Premium Member
+      </div>
+
+      <div class="info">
+        <h3>Amara, 42</h3>
+        <div class="location">Nairobi</div>
+
+        <p>
+          Elegant, confident and interested
+          in meaningful connections.
+        </p>
+
+        <div class="premium-lock">
+          🔒 Premium profile
+        </div>
+      </div>
+
+    </article>
+
+    <article
+      class="profile"
+      data-name="Nia"
+      data-location="Mombasa">
+
+      <div class="photo">
+        Premium Member
+      </div>
+
+      <div class="info">
+        <h3>Nia, 39</h3>
+        <div class="location">Mombasa</div>
+
+        <p>
+          Enjoys travel, conversation and
+          sophisticated experiences.
+        </p>
+
+        <div class="premium-lock">
+          🔒 Premium profile
+        </div>
+      </div>
+
+    </article>
+
+    <article
+      class="profile"
+      data-name="Zuri"
+      data-location="Nairobi">
+
+      <div class="photo">
+        Premium Member
+      </div>
+
+      <div class="info">
+        <h3>Zuri, 45</h3>
+        <div class="location">Nairobi</div>
+
+        <p>
+          Independent, warm and looking
+          for a genuine connection.
+        </p>
+
+        <div class="premium-lock">
+          🔒 Premium profile
+        </div>
+      </div>
+
+    </article>
+
+    <article
+      class="profile"
+      data-name="Amani"
+      data-location="Kisumu">
+
+      <div class="photo">
+        Premium Member
+      </div>
+
+      <div class="info">
+        <h3>Amani, 41</h3>
+        <div class="location">Kisumu</div>
+
+        <p>
+          Adventurous and interested in
+          meeting like-minded adults.
+        </p>
+
+        <div class="premium-lock">
+          🔒 Premium profile
+        </div>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- PREMIUM -->
+
+<section id="premium">
+
+  <div class="premium-box">
+
+    <div class="eyebrow">
+      Sugar Society Premium
+    </div>
+
+    <h2>
+      Unlock the full experience.
+    </h2>
+
+    <div class="price">
+      KSh 499
+      <small>/ month</small>
+    </div>
+
+    <ul class="features">
+
+      <li>
+        Access premium profiles
+      </li>
+
+      <li>
+        Advanced member search
+      </li>
+
+      <li>
+        Unlimited messaging
+      </li>
+
+      <li>
+        Save favorite profiles
+      </li>
+
+      <li>
+        Premium member badge
+      </li>
+
+      <li>
+        Priority profile visibility
+      </li>
+
+    </ul>
+
+    <button
+      class="btn primary"
+      onclick="openModal('paymentModal')">
+
+      Unlock Premium — KSh 499
+
+    </button>
+
+  </div>
+
+</section>
+
+<!-- SUPPORT -->
+
+<section
+  class="dark"
+  id="support">
+
+  <div class="heading">
+
+    <div class="eyebrow">
+      Customer Service
+    </div>
+
+    <h2>
+      Need assistance?
+    </h2>
+
+    <p>
+      Our customer service team is available
+      through Telegram.
+    </p>
+
+    <a
+      class="telegram"
+      href="https://t.me/sugarssoceity"
+      target="_blank"
+      rel="noopener">
+
+      💬 Contact @sugarssoceity
+
+    </a>
+
+  </div>
+
+</section>
+
+<footer>
+
+  © 2026 Sugar Society.
+  All rights reserved.
+
+  <br><br>
+
+  Adults only. Please respect other members
+  and follow applicable laws.
+
+</footer>
+
+</div>
+
+<!-- LOGIN MODAL -->
+
+<div
+  class="modal"
+  id="loginModal">
+
+  <div class="modalbox">
+
+    <button
+      class="close"
+      onclick="closeModal('loginModal')">
+      ×
+    </button>
+
+    <h2>
+      Welcome to Sugar Society
+    </h2>
+
+    <input
+      id="email"
+      type="email"
+      placeholder="Email address">
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Password">
+
+    <button
+      class="btn primary full"
+      onclick="login()">
+
+      Sign In
+
+    </button>
+
+    <div class="notice">
+      New members can create an account
+      after the secure backend is connected.
+    </div>
+
+  </div>
+
+</div>
+
+<!-- PAYMENT MODAL -->
+
+<div
+  class="modal"
+  id="paymentModal">
+
+  <div class="modalbox">
+
+    <button
+      class="close"
+      onclick="closeModal('paymentModal')">
+      ×
+    </button>
+
+    <h2>
+      Sugar Society Premium
+    </h2>
+
+    <p style="color:#bbb">
+      Premium membership:
+      <strong style="color:#d7ad62">
+        KSh 499/month
+      </strong>
+    </p>
+
+    <input
+      id="phone"
+      type="tel"
+      placeholder="M-Pesa phone number">
+
+    <button
+      class="btn primary full"
+      onclick="requestPayment()">
+
+      Pay KSh 499
+
+    </button>
+
+    <div class="notice">
+      Your M-Pesa PIN should only be entered
+      into the official M-Pesa prompt on your phone.
+      Never give your PIN to Sugar Society support.
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ADMIN LOGIN -->
+
+<div
+  class="modal"
+  id="adminLoginModal">
+
+  <div class="modalbox">
+
+    <button
+      class="close"
+      onclick="closeModal('adminLoginModal')">
+      ×
+    </button>
+
+    <h2>
+      Admin Login
+    </h2>
+
+    <input
+      id="adminEmail"
+      type="email"
+      placeholder="Admin email">
+
+    <input
+      id="adminPassword"
+      type="password"
+      placeholder="Admin password">
+
+    <button
+      class="btn primary full"
+      onclick="adminLogin()">
+
+      Access Dashboard
+
+    </button>
+
+    <div class="notice">
+      Admin authentication must be verified
+      server-side in production.
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ADMIN DASHBOARD -->
+
+<div id="adminPage">
+
+  <div class="admin-top">
+
+    <div>
+      <div class="eyebrow">
+        Sugar Society
+      </div>
+
+      <h1>
+        Admin Dashboard
+      </h1>
+
+      <p style="color:#999">
+        Platform management
+      </p>
+    </div>
+
+    <button
+      class="logout"
+      onclick="exitAdmin()">
+
+      Logout
+
+    </button>
+
+  </div>
+
+  <div class="admin-grid">
+
+    <div class="stat">
+      <small>Total Users</small>
+      <strong id="statUsers">0</strong>
+    </div>
+
+    <div class="stat">
+      <small>Premium Members</small>
+      <strong id="statPremium">0</strong>
+    </div>
+
+    <div class="stat">
+      <small>Payments</small>
+      <strong id="statPayments">0</strong>
+    </div>
+
+    <div class="stat">
+      <small>Revenue</small>
+      <strong id="statRevenue">
+        KSh 0
+      </strong>
+    </div>
+
+  </div>
+
+  <div class="admin-panel">
+
+    <h2>
+      Admin Controls
+    </h2>
+
+    <div class="admin-actions">
+
+      <button
+        class="admin-action"
+        onclick="adminFeature('User Management')">
+
+        👥 <strong>User Management</strong>
+
+        <br>
+        <small>
+          View, suspend and manage member accounts.
+        </small>
+
+      </button>
+
+      <button
+        class="admin-action"
+        onclick="adminFeature('Premium Management')">
+
+        💎 <strong>Premium Management</strong>
+
+        <br>
+        <small>
+          Manage Premium memberships and expiry dates.
+        </small>
+
+      </button>
+
+      <button
+        class="admin-action"
+        onclick="adminFeature('Payments')">
+
+        💳 <strong>Payments</strong>
+
+        <br>
+        <small>
+          Review payment transactions and statuses.
+        </small>
+
+      </button>
+
+      <button
+        class="admin-action"
+        onclick="adminFeature('Profile Moderation')">
+
+        👤 <strong>Profile Moderation</strong>
+
+        <br>
+        <small>
+          Review profiles and moderation requests.
+        </small>
+
+      </button>
+
+      <button
+        class="admin-action"
+        onclick="adminFeature('Reports')">
+
+        🚨 <strong>Reports</strong>
+
+        <br>
+        <small>
+          Review member reports and complaints.
+        </small>
+
+      </button>
+
+      <button
+        class="admin-action"
+        onclick="adminFeature('Support')">
+
+        💬 <strong>Customer Support</strong>
+
+        <br>
+        <small>
+          Manage customer service requests.
+        </small>
+
+      </button>
+
+      <button
+        class="admin-action"
+        onclick="adminFeature('Announcements')">
+
+        📢 <strong>Announcements</strong>
+
+        <br>
+        <small>
+          Publish notices to members.
+        </small>
+
+      </button>
+
+      <button
+        class="admin-action"
+        onclick="adminFeature('Settings')">
+
+        ⚙️ <strong>Platform Settings</strong>
+
+        <br>
+        <small>
+          Configure Premium and platform options.
+        </small>
+
+      </button>
+
+      <button
+        class="admin-action"
+        onclick="window.open('https://t.me/sugarssoceity','_blank')">
+
+        📲 <strong>Telegram Support</strong>
+
+        <br>
+        <small>
+          Open @sugarssoceity.
+        </small>
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="admin-panel">
+
+    <h2>
+      Recent Activity
+    </h2>
+
+    <p class="status">
+      ● Dashboard online
+    </p>
+
+    <br>
+
+    <p style="color:#999">
+      Real user, payment and report information
+      will appear here once a secure database
+      is connected.
+    </p>
+
+  </div>
+
+  <div class="admin-panel">
+
+    <h2>
+      Premium Configuration
+    </h2>
+
+    <p style="color:#bbb">
+      Current Premium price:
+      <strong style="color:#d7ad62">
+        KSh 499 / month
+      </strong>
+    </p>
+
+  </div>
+
+</div>
+
+<script>
+
+/* =========================
+   GENERAL MODALS
+========================= */
+
+function openModal(id){
+
+  document
+    .getElementById(id)
+    .classList.add("show");
+
+}
+
+function closeModal(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("show");
+
+}
+
+window.addEventListener("click",function(e){
+
+  if(e.target.classList.contains("modal")){
+
+    e.target.classList.remove("show");
+
+  }
+
+});
+
+/* =========================
+   PROFILE SEARCH
+========================= */
+
+function filterProfiles(){
+
+  const search =
+    document
+      .getElementById("searchName")
+      .value
+      .toLowerCase();
+
+  const location =
+    document
+      .getElementById("searchLocation")
+      .value;
+
+  document
+    .querySelectorAll(".profile")
+    .forEach(profile=>{
+
+      const name =
+        profile.dataset.name.toLowerCase();
+
+      const profileLocation =
+        profile.dataset.location;
+
+      const nameMatch =
+        name.includes(search);
+
+      const locationMatch =
+        !location ||
+        location===profileLocation;
+
+      profile.style.display =
+        nameMatch && locationMatch
+          ? "block"
+          : "none";
+
+    });
+
+}
+
+/* =========================
+   DEMO USER LOGIN
+========================= */
+
+function login(){
+
+  const email =
+    document.getElementById("email").value;
+
+  const password =
+    document.getElementById("password").value;
+
+  if(!email || !password){
+
+    alert("Please enter your email and password.");
+
+    return;
+
+  }
+
+  alert(
+    "Login interface ready. Connect this form to your secure authentication backend."
+  );
+
+}
+
+  
